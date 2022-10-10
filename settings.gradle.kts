@@ -22,4 +22,5 @@ include(":app",
         ":tracker:tracker_data",
         ":tracker:tracker_domain",
         ":tracker:tracker_presentation",
+        ":core-ui",
 )
