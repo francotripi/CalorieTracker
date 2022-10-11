@@ -16,6 +16,8 @@ import com.francotripi.calorietracker.ui.theme.CalorieTrackerTheme
 import com.francotripi.core.navigation.Route
 import com.francotripi.onboarding_presentation.age.AgeScreen
 import com.francotripi.onboarding_presentation.gender.GenderScreen
+import com.francotripi.onboarding_presentation.height.HeightScreen
+import com.francotripi.onboarding_presentation.weight.WeightScreen
 import com.francotripi.onboarding_presentation.welcome.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -48,10 +50,16 @@ class MainActivity : ComponentActivity() {
                             GenderScreen(onNavigate = navController::navigate)
                         }
                         composable(Route.HEIGHT) {
-
+                            HeightScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.WEIGHT) {
-
+                            WeightScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.NUTRIENT_GOAL) {
 
