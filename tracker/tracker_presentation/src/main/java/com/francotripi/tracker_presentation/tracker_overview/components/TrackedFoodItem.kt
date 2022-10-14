@@ -41,8 +41,7 @@ fun TrackedFoodItem(
             .padding(spacing.spaceExtraSmall)
             .shadow(
                 elevation = 1.dp,
-                shape = RoundedCornerShape(5.dp)
-            )
+                shape = RoundedCornerShape(5.dp))
             .background(MaterialTheme.colors.surface)
             .padding(end = spacing.spaceMedium)
             .height(100.dp),
@@ -71,10 +70,7 @@ fun TrackedFoodItem(
                 )
         )
         Spacer(modifier = Modifier.width(spacing.spaceMedium))
-        Column(
-            modifier = Modifier
-                .weight(1f)
-        ) {
+        Column(modifier = Modifier.weight(1f)) {
             Text(
                 text = trackedFood.name,
                 style = MaterialTheme.typography.body1,
@@ -90,49 +86,49 @@ fun TrackedFoodItem(
                 ),
                 style = MaterialTheme.typography.body2
             )
-            Spacer(modifier = Modifier.height(spacing.spaceMedium))
-            Column(
-                modifier = Modifier.fillMaxHeight(),
-                verticalArrangement = Arrangement.Center
+        }
+        Spacer(modifier = Modifier.height(spacing.spaceMedium))
+        Column(
+            modifier = Modifier.fillMaxHeight(),
+            verticalArrangement = Arrangement.Center
+        ) {
+            Icon(
+                imageVector = Icons.Default.Close,
+                contentDescription = stringResource(id = R.string.delete),
+                modifier = Modifier
+                    .align(Alignment.End)
+                    .clickable { onDeleteClick() }
+            )
+            Spacer(modifier = Modifier.height(spacing.spaceExtraSmall))
+            Row(
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Icon(
-                    imageVector = Icons.Default.Close,
-                    contentDescription = stringResource(id = R.string.delete),
-                    modifier = Modifier
-                        .align(Alignment.End)
-                        .clickable { onDeleteClick() }
+                NutrientInfo(
+                    name = stringResource(id = R.string.carbs),
+                    amount = trackedFood.carbs,
+                    unit = stringResource(id = R.string.grams),
+                    amountTextSize = 16.sp,
+                    unitTextSize = 12.sp,
+                    nameTextStyle = MaterialTheme.typography.body2
                 )
-                Spacer(modifier = Modifier.height(spacing.spaceExtraSmall))
-                Row(
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    NutrientInfo(
-                        name = stringResource(id = R.string.carbs),
-                        amount = trackedFood.carbs,
-                        unit = stringResource(id = R.string.grams),
-                        amountTextSize = 16.sp,
-                        unitTextSize = 12.sp,
-                        nameTextStyle = MaterialTheme.typography.body2
-                    )
-                    Spacer(modifier = Modifier.width(spacing.spaceExtraSmall))
-                    NutrientInfo(
-                        name = stringResource(id = R.string.protein),
-                        amount = trackedFood.protein,
-                        unit = stringResource(id = R.string.grams),
-                        amountTextSize = 16.sp,
-                        unitTextSize = 12.sp,
-                        nameTextStyle = MaterialTheme.typography.body2
-                    )
-                    Spacer(modifier = Modifier.width(spacing.spaceExtraSmall))
-                    NutrientInfo(
-                        name = stringResource(id = R.string.fat),
-                        amount = trackedFood.fat,
-                        unit = stringResource(id = R.string.grams),
-                        amountTextSize = 16.sp,
-                        unitTextSize = 12.sp,
-                        nameTextStyle = MaterialTheme.typography.body2
-                    )
-                }
+                Spacer(modifier = Modifier.width(spacing.spaceExtraSmall))
+                NutrientInfo(
+                    name = stringResource(id = R.string.protein),
+                    amount = trackedFood.protein,
+                    unit = stringResource(id = R.string.grams),
+                    amountTextSize = 16.sp,
+                    unitTextSize = 12.sp,
+                    nameTextStyle = MaterialTheme.typography.body2
+                )
+                Spacer(modifier = Modifier.width(spacing.spaceExtraSmall))
+                NutrientInfo(
+                    name = stringResource(id = R.string.fat),
+                    amount = trackedFood.fat,
+                    unit = stringResource(id = R.string.grams),
+                    amountTextSize = 16.sp,
+                    unitTextSize = 12.sp,
+                    nameTextStyle = MaterialTheme.typography.body2
+                )
             }
         }
     }
