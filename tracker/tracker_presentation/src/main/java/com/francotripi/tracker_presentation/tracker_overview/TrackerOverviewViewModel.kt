@@ -6,14 +6,11 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.francotripi.core.domain.preferences.Preferences
-import com.francotripi.core.util.UiEvent
 import com.francotripi.tracker_domain.use_case.TrackerUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -25,9 +22,6 @@ class TrackerOverviewViewModel @Inject constructor(
 
     var state by mutableStateOf(TrackerOverviewState())
         private set
-
-    private val _uiEvent = Channel<UiEvent>()
-    val uiEvent = _uiEvent.receiveAsFlow()
 
     private var getFoodsForDateJob: Job? = null
 
