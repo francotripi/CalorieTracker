@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.francotripi.core.domain.preferences.Preferences
 import com.francotripi.core.domain.use_case.FilterOutDigits
-import com.francotripi.core.navigation.Route
 import com.francotripi.core.util.UiEvent
 import com.francotripi.onboarding_domain.use_case.ValidateNutrients
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -60,7 +59,7 @@ class NutrientGoalViewModel @Inject constructor(
                             saveFatRatio(result.fatRatio)
                         }
                         viewModelScope.launch {
-                            _uiEvent.send(UiEvent.Navigate(Route.TRACKER_OVERVIEW))
+                            _uiEvent.send(UiEvent.Success)
                         }
                     }
                     is ValidateNutrients.Result.Error -> {

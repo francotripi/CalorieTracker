@@ -1,4 +1,4 @@
-package com.francotripi.core.navigation
+package com.francotripi.calorietracker.navigation
 
 object Route {
     const val WELCOME = "welcome"
